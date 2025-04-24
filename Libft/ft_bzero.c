@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 14:31:48 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/24 15:21:23 by jvandevo         ###   ########.fr       */
+/*   Created: 2025/04/24 15:17:43 by jvandevo          #+#    #+#             */
+/*   Updated: 2025/04/24 15:33:59 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void *memcpy(void *dst, const void *src, size_t n){
-    unsigned char *temp_dst;
-    unsigned char *temp_src;
+void    ft_bzero(void *s, size_t n){
 
-    if(!src && !dst){
-        return dst;
-    }
-    temp_dst = (unsigned char *) dst;
-    temp_src = (unsigned char *) src;
+    char *temp;
+    temp = (char *) s;
     while(n > 0){
-
-
-        *(temp_dst++) = *(temp_src++);        
+        *(temp++) = 0;
         n--;
     }
-    return (dst);
-
 }
