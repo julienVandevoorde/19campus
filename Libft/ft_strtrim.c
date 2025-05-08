@@ -6,7 +6,7 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:28:27 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/08 15:42:38 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:45:33 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_strlen(const char *str) {
     return (i);
 }
 
-int ft_is_in_set(char c, const char *set) {
+int ft_is_in_set(char c, char const *set) {
     unsigned int i;
 
     i = 0;
@@ -34,7 +34,7 @@ int ft_is_in_set(char c, const char *set) {
     return (0);
 }
 
-char *ft_strtrim(const char *s1, const char *set) {
+char *ft_strtrim(char const *s1, char const *set) {
     unsigned int start;
     unsigned int end;
     unsigned int i;

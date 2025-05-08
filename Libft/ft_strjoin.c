@@ -6,7 +6,7 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:11:51 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/08 14:26:32 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:46:31 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int ft_strlen(const char *str){
     return i;
 }
 
-char *ft_strjoin(const char *s1, const char *s2){
+char *ft_strjoin(char const *s1, char const *s2){
     unsigned int i;
     unsigned int j;
     unsigned int k;
