@@ -6,27 +6,19 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:28:27 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/08 16:45:33 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:04:34 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int ft_strlen(const char *str) {
-    unsigned int i;
-
-    i = 0;
-    while (str[i]) {
-        i++;
-    }
-    return (i);
-}
-
-int ft_is_in_set(char c, char const *set) {
-    unsigned int i;
+int ft_check(char c, const char *set)
+{
+    size_t i;
 
     i = 0;
-    while (set[i]) {
+    while (set[i] != 0)
+    {
         if (set[i] == c)
             return (1);
         i++;
@@ -34,33 +26,55 @@ int ft_is_in_set(char c, char const *set) {
     return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set) {
-    unsigned int start;
-    unsigned int end;
-    unsigned int i;
-    char *dest;
-
-    if (!s1 || !set)
-        return (NULL);
-
-    start = 0;
-    end = ft_strlen(s1);
-    while (s1[start] && ft_is_in_set(s1[start], set))
-        start++;
-    while (end > start && ft_is_in_set(s1[end - 1], set))
-        end--;
-
-    dest = malloc((end - start + 1) * sizeof(char));
-    if (!dest)
-        return (NULL);
+char *ft_doing_it(const char *str, size_t start, size_t end)
+{
+    size_t i;
+    char *trimmed;
 
     i = 0;
-    while (start < end) {
-        dest[i] = s1[start];
+    if (end <= 0)
+        return (ft_strdup(""));
+    trimmed = ft_calloc(1 + end, sizeof(char));
+    if (!trimmed)
+        return (NULL);
+    while (i < end)
+    {
+        trimmed[i] = str[start + i];
         i++;
-        start++;
     }
-    dest[i] = '\0';
-
-    return (dest);
+    return (trimmed);
 }
+
+char *ft_strtrim(const char *s1, const char *set)
+{
+    size_t i;
+    size_t j;
+
+    i = 0;
+    j = ft_strlen(s1);
+    if (j == 0)
+        return (ft_strdup(""));
+    j = j - 1;
+    while (ft_check(s1[i], set))
+        i++;
+    if (i > j)
+        return (ft_strdup(""));
+    while (ft_check(s1[j], set))
+        j--;
+    return (ft_doing_it(s1, i, j - i + 1));
+}
+
+/*#include <stdio.h>
+int	main(int argc, char** argv)
+{
+    char* result;
+
+    if (argc != 3)
+    {
+        printf("Please put 2 variables");
+        return (0);
+    }
+    result = ft_strtrim((const char*)argv[1], (const char*)argv[2]);
+    printf("%s", result);
+    return (0);
+}*/

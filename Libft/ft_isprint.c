@@ -6,10 +6,13 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 13:47:16 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/17 13:49:40 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:04:36 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c){
+#include "libft.h"
+
+int ft_isprint(int c)
+{
     return (c >= 32 && c <= 126);
 }

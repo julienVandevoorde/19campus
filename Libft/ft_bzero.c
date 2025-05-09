@@ -6,17 +6,19 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 15:17:43 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/24 15:33:59 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:03:07 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void    ft_bzero(void *s, size_t n){
-
+void ft_bzero(void *s, size_t n)
+{
     char *temp;
-    temp = (char *) s;
-    while(n > 0){
+
+    temp = (char *)s;
+    while (n > 0)
+    {
         *(temp++) = 0;
         n--;
     }

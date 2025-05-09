@@ -1,77 +1,127 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/09 16:11:37 by jvandevo          #+#    #+#             */
+/*   Updated: 2025/05/09 17:06:41 by jvandevo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	count_word(char const *str, char c)
+#include "libft.h"
+
+void ft_free_tab(char **dest, int count)
 {
-	int	count = 0;
-	int i = 0;
+	int i;
 
-	while (str[i])
+	i = 0;
+	while (i < count)
 	{
-		while (str[i] == c)
-			i++;
-		if (str[i] && str[i] != c)
-			count++;
-		while (str[i] && str[i] != c)
-			i++;
-	}
-	return (count);
-}
-
-static char	*ft_strdup_range(char const *start, char const *end)
-{
-	int i = 0;
-	int size = end - start;
-	char *tab = (char *)malloc((size + 1) * sizeof(char));
-	if (!tab)
-		return (0);
-	while (start < end)
-	{
-		tab[i++] = *start++;
-	}
-	tab[i] = '\0';
-	return (tab);
-}
-
-static void	free_all(char **tab, int lign)
-{
-	int i = 0;
-	while (i < lign)
-	{
-		free(tab[i]);
+		free(dest[i]);
 		i++;
 	}
-	free(tab);
+	free(dest);
 }
 
-char	**ft_split(char const *s, char c)
+int ft_nbr_words(const char *s, char c)
 {
-	char **tab;
-	char const *start;
-	int nbr_word;
-	int lign = 0;
-	int i = 0;
+	int nbr;
+	int i;
+
+	i = 0;
+	nbr = 0;
+	while (s[i] != 0)
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] != 0)
+		{
+			nbr++;
+			while (s[i] != 0 && s[i] != c)
+				i++;
+		}
+	}
+	return (nbr);
+}
+
+char *ft_fill_dest(const char *start, const char *end)
+{
+	int size;
+	int i;
+	char *dest;
+
+	size = end - start;
+	dest = (char *)malloc((size + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		dest[i] = start[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char **ft_doing_split(const char *s, char c, char **dest)
+{
+	int i;
+	int j;
+	const char *start;
+
+	i = 0;
+	j = 0;
+	while (s[i] != 0)
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] != 0)
+		{
+			start = &s[i];
+			while (s[i] != 0 && s[i] != c)
+				i++;
+			dest[j] = ft_fill_dest(start, &s[i]);
+			if (dest[j] == NULL)
+				return (ft_free_tab(dest, j), NULL);
+			j++;
+		}
+	}
+	dest[j] = NULL;
+	return (dest);
+}
+
+char **ft_split(const char *s, char c)
+{
+	char **dest;
 
 	if (!s)
 		return (NULL);
-	nbr_word = count_word(s, c);
-	tab = (char **)malloc((nbr_word + 1) * sizeof(char *));
-	if (!tab)
+	dest = (char **)malloc((ft_nbr_words(s, c) + 1) * sizeof(char *));
+	if (!dest)
 		return (NULL);
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			start = &s[i];
-			while (s[i] && s[i] != c)
-				i++;
-			tab[lign] = ft_strdup_range(start, &s[i]);
-			if (!tab[lign])
-				return (free_all(tab, lign), NULL);
-			lign++;
-		}
-		else
-			i++;
-	}
-	tab[lign] = NULL;
-	return (tab);
+	return (ft_doing_split(s, c, dest));
 }
+
+/*#include <stdio.h>
+int	main(int argc, char** argv)
+{
+	char** result;
+	int	i;
+
+	if (argc != 3)
+	{
+		printf("Please put 2 variables");
+		return (0);
+	}
+	result = ft_split(argv[1], (char)argv[2][0]);
+	i = 0;
+	while (result[i] != NULL)
+	{
+		printf("%s\n", result[i]);
+		i++;
+	}
+	return (0);
+}*/

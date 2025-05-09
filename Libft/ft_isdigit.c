@@ -6,10 +6,13 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:05:37 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/17 12:09:48 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:04:30 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c){
+#include "libft.h"
+
+int ft_isdigit(int c)
+{
     return (c >= '0' && c <= '9');
 }

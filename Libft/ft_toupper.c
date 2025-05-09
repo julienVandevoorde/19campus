@@ -6,12 +6,15 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:20:33 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/17 15:47:11 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:17:52 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c){
-    if(c >= 'a' && c <= 'z')
+#include "libft.h"
+
+int ft_toupper(int c)
+{
+    if (c >= 'a' && c <= 'z')
         c = c - 32;
     return c;
 }

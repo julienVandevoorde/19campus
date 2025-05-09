@@ -6,9 +6,11 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:00:52 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/07 15:08:42 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:15:48 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char *ft_strrchr(const char *s, int c)
 {

@@ -6,10 +6,13 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:20:16 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/17 12:36:29 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:04:23 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c){
+#include "libft.h"
+
+int ft_isascii(int c)
+{
     return (c >= 0 && c <= 127);
 }

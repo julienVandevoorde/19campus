@@ -6,14 +6,16 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:29:16 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/04/17 12:04:19 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:04:16 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c){
+#include "libft.h"
+
+int ft_isalpha(int c)
+{
     return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
-
 
 /*
 #include <stdio.h>

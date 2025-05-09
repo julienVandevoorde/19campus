@@ -6,11 +6,14 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:10:14 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/07 16:03:32 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:04:09 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c){
+#include "libft.h"
+
+int ft_isalnum(int c)
+{
     return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 

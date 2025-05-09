@@ -6,9 +6,11 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:16:22 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/09 14:17:53 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:10:27 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void ft_putchar_fd(char c, int fd)
 {

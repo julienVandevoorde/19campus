@@ -6,43 +6,47 @@
 /*   By: jvandevo <jvandevo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:22:44 by jvandevo          #+#    #+#             */
-/*   Updated: 2025/05/08 14:08:35 by jvandevo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:05:15 by jvandevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int ft_strlen(const char *str) {
-    unsigned int i = 0;
-    while (str[i])
-        i++;
-    return i;
-}
-
-char *ft_substr(char const *s, unsigned int start, size_t len) {
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
     char *dest;
-    size_t i = 0;
-    size_t str_len = ft_strlen(s);
+    size_t i;
 
-    if (start >= str_len) {
-        dest = malloc(1);
-        if (!dest)
-            return NULL;
-        dest[0] = '\0';
-        return dest;
-    }
-
-    if (len > str_len - start)
-        len = str_len - start;
-
-    dest = malloc((len + 1) * sizeof(char));
+    i = 0;
+    if (!s)
+        return (NULL);
+    if (start > ft_strlen(s))
+        return (ft_strdup(""));
+    if (len > ft_strlen(s) - start)
+        len = ft_strlen(s) - start;
+    dest = ft_calloc(len + 1, sizeof(char));
     if (!dest)
-        return NULL;
-
-    while (i < len) {
+        return (NULL);
+    while (i < len)
+    {
         dest[i] = s[start + i];
         i++;
     }
-    dest[i] = '\0';
-    return dest;
+    return (dest);
 }
+
+/*#include <stdio.h>
+int	main(int argc, char** argv)
+{
+    char* result;
+
+    if (argc != 4)
+    {
+        printf("Please put 3 variables");
+        return (0);
+    }
+    result = ft_substr((const char*)argv[1], (unsigned int)ft_atoi(argv[2]),
+        (size_t)ft_atoi(argv[3]));
+    printf("%s", result);
+    return (0);
+}*/
